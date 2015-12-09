@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <studio_uuid>8466bd24-fd59-11df-9f90-475ae2f5345b</studio_uuid>
+  <appliance_uuid>22ef0b8e-8ca4-11e5-41b4-a76352074698</appliance_uuid>
+  <config>
+    <image name="SLES_12" displayname="SLES_12" schemaversion="5.2">
+      <description type="system">
+        <author>Duane Snider</author>
+        <contact>studio-devel@suse.de</contact>
+        <specification>SLES 12</specification>
+      </description>
+      <preferences>
+        <type checkprebuilt="true" boot="oemboot/suse-SLES12" fsnocheck="true" filesystem="ext3" bootloader="grub2" installiso="true" installboot="install" kernelcmdline="quiet" fsmountoptions="acl" image="oem">
+          <oemconfig>
+            <oem-swap>true</oem-swap>
+            <oem-swapsize>512</oem-swapsize>
+          </oemconfig>
+        </type>
+        <version>0.0.4</version>
+        <packagemanager>ensconce</packagemanager>
+        <rpm-check-signatures>false</rpm-check-signatures>
+        <rpm-force>false</rpm-force>
+        <boot-theme>studio</boot-theme>
+        <timezone>UTC</timezone>
+        <hwclock>localtime</hwclock>
+        <locale>en_US</locale>
+      </preferences>
+      <users group="root">
+        <user name="root" pwd="$1$aLVMQOEs$hRujsFGymCI4wNTQfoygU/" home="/root" shell="/bin/bash"/>
+      </users>
+      <repository type="yast2">
+        <source path="http://sle-mirror.cluster.xs/install/SLE-12-SDK-x86_64/"/>
+      </repository>
+      <repository type="yast2">
+        <source path="http://sle-mirror.cluster.xs/install/SLE-12-Server-x86_64/"/>
+      </repository>
+      <repository type="rpm-md">
+        <source path="http://sle-mirror.cluster.xs/updates/SLE-SERVER-12-Updates/x86_64/"/>
+      </repository>
+      <repository type="rpm-md">
+        <source path="http://sle-mirror.cluster.xs/updates/SLE-SDK-12-Updates/x86_64/"/>
+      </repository>
+      <packages type="image" patternType="onlyRequired">
+        <package name="kiwi-templates"/>
+        <package name="kiwi-desc-oemboot"/>
+        <package name="kiwi-desc-isoboot"/>
+        <package name="kiwi-tools"/>
+        <package name="kiwi-doc"/>
+        <package name="kiwi"/>
+        <package name="SuSEfirewall2"/>
+        <package name="grub2"/>
+        <package name="glibc-locale"/>
+        <package name="iproute2"/>
+        <package name="iputils"/>
+        <package name="kernel-default"/>
+        <package name="less"/>
+        <package name="openssh"/>
+        <package name="plymouth"/>
+        <package name="vim"/>
+        <package name="yast2"/>
+        <package name="yast2-firstboot"/>
+        <package name="zypper"/>
+        <archive name="plymouth.tar" bootinclude="true"/>
+        <package name="gfxboot-devel" bootinclude="true"/>
+      </packages>
+      <packages type="bootstrap">
+        <package name="filesystem"/>
+        <package name="glibc-locale"/>
+        <package name="module-init-tools"/>
+      </packages>
+    </image>
+  </config>
+  <extra_config name="dsnider_SLES_12">
+    <appliance_id>1494617</appliance_id>
+    <arch>x86_64</arch>
+    <version>0.0.4</version>
+    <logo>78/2a21cd04710c114576180a58c55522</logo>
+    <background>9a/0970db7487a2bc0971fafa8442f949</background>
+    <base_system>SLES12</base_system>
+    <image_type>oemiso</image_type>
+    <time_zone>UTC</time_zone>
+    <region>Global</region>
+    <default_runlevel>3</default_runlevel>
+    <install_recommended>false</install_recommended>
+    <xen_host>false</xen_host>
+    <exclude_docs>false</exclude_docs>
+    <disable_branding>false</disable_branding>
+    <template>SLES 12, Server</template>
+    <locale>
+      <language>en_US.UTF-8</language>
+      <keytable>us.map.gz</keytable>
+    </locale>
+    <estimated_size>970</estimated_size>
+    <size_offset>0</size_offset>
+    <non_interactive/>
+    <oem_disk_size>16G</oem_disk_size>
+    <check_supportability>false</check_supportability>
+    <network config="dhcp">
+    </network>
+    <startup_programs>
+    </startup_programs>
+    <overlay_files remove="">
+    </overlay_files>
+    <firewall>
+      <firewall_enabled>yes</firewall_enabled>
+      <firewall_ssh>opened</firewall_ssh>
+      <firewall_http>opened</firewall_http>
+      <firewall_webyast>closed</firewall_webyast>
+    </firewall>
+    <webyast enabled="false" version="">
+    </webyast>
+    <x_keyboard model="microsoftpro" layout="us" variant="" keycode="xfree86" LA="" RA="" SL="" RC="" OPT=""/>
+    <enable_root_firstboot>false</enable_root_firstboot>
+    <window_manager/>
+    <display_manager/>
+  </extra_config>
+</manifest>
